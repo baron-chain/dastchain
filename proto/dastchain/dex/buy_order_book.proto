@@ -1,0 +1,12 @@
+syntax = "proto3";
+package dastchain.dex;
+
+option go_package = "dastchain/x/dex/types";
+
+message BuyOrderBook {
+  string index = 1; 
+  string amountDenom = 2; 
+  string priceDenom = 3; 
+  
+}
+

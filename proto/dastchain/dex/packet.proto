@@ -1,13 +1,54 @@
 syntax = "proto3";
+
 package dastchain.dex;
 
 option go_package = "dastchain/x/dex/types";
 
 message DexPacketData {
-    oneof packet {
-        NoData noData = 1;
-    }
+  oneof packet {
+    NoData               noData           = 1;
+    CreatePairPacketData createPairPacket = 2;
+    SellOrderPacketData  sellOrderPacket  = 3;
+    BuyOrderPacketData   buyOrderPacket   = 4;
+  }
 }
 
-message NoData {
+message NoData {}
+
+// CreatePairPacketData defines a struct for the packet payload
+message CreatePairPacketData {
+  string sourceDenom = 1;
+  string targetDenom = 2;
 }
+
+// CreatePairPacketAck defines a struct for the packet acknowledgment
+message CreatePairPacketAck {}
+
+// SellOrderPacketData defines a struct for the packet payload
+message SellOrderPacketData {
+  string amountDenom = 1;
+  int32  amount      = 2;
+  string priceDenom  = 3;
+  int32  price       = 4;
+}
+
+// SellOrderPacketAck defines a struct for the packet acknowledgment
+message SellOrderPacketAck {
+  int32 remainingAmount = 1;
+  int32 gain            = 2;
+}
+
+// BuyOrderPacketData defines a struct for the packet payload
+message BuyOrderPacketData {
+  string amountDenom = 1;
+  int32  amount      = 2;
+  string priceDenom  = 3;
+  int32  price       = 4;
+}
+
+// BuyOrderPacketAck defines a struct for the packet acknowledgment
+message BuyOrderPacketAck {
+  int32 remainingAmount = 1;
+  int32 purchase        = 2;
+}
+

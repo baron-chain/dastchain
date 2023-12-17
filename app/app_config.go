@@ -72,9 +72,12 @@ import (
 	"google.golang.org/protobuf/types/known/durationpb"
 
 	dastchainmodulev1 "dastchain/api/dastchain/dastchain/module"
+	dexmodulev1 "dastchain/api/dastchain/dex/module"
 	tokenfactorymodulev1 "dastchain/api/dastchain/tokenfactory/module"
 	_ "dastchain/x/dastchain/module" // import for side-effects
 	dastchainmoduletypes "dastchain/x/dastchain/types"
+	_ "dastchain/x/dex/module" // import for side-effects
+	dexmoduletypes "dastchain/x/dex/types"
 	_ "dastchain/x/tokenfactory/module" // import for side-effects
 	tokenfactorymoduletypes "dastchain/x/tokenfactory/types"
 	// this line is used by starport scaffolding # stargate/app/moduleImport
@@ -116,6 +119,7 @@ var (
 		// chain modules
 		dastchainmoduletypes.ModuleName,
 		tokenfactorymoduletypes.ModuleName,
+		dexmoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/initGenesis
 	}
 
@@ -142,6 +146,7 @@ var (
 		// chain modules
 		dastchainmoduletypes.ModuleName,
 		tokenfactorymoduletypes.ModuleName,
+		dexmoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/beginBlockers
 	}
 
@@ -162,6 +167,7 @@ var (
 		// chain modules
 		dastchainmoduletypes.ModuleName,
 		tokenfactorymoduletypes.ModuleName,
+		dexmoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/endBlockers
 	}
 
@@ -319,6 +325,10 @@ var (
 			{
 				Name:   tokenfactorymoduletypes.ModuleName,
 				Config: appconfig.WrapAny(&tokenfactorymodulev1.Module{}),
+			},
+			{
+				Name:   dexmoduletypes.ModuleName,
+				Config: appconfig.WrapAny(&dexmodulev1.Module{}),
 			},
 			// this line is used by starport scaffolding # stargate/app/moduleConfig
 		},

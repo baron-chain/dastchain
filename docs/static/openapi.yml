@@ -9060,40 +9060,330 @@ paths:
             description: MsgUpdateParams is the Msg/UpdateParams request type.
       tags:
         - Msg
-  /dastchain/tokenfactory/denom:
+  /dastchain.dex.Msg/CancelBuyOrder:
+    post:
+      operationId: DastchainDexMsg_CancelBuyOrder
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              creator:
+                type: string
+              port:
+                type: string
+              channel:
+                type: string
+              amountDenom:
+                type: string
+              priceDenom:
+                type: string
+              orderId:
+                type: integer
+                format: int32
+      tags:
+        - Msg
+  /dastchain.dex.Msg/CancelSellOrder:
+    post:
+      operationId: DastchainDexMsg_CancelSellOrder
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              creator:
+                type: string
+              port:
+                type: string
+              channel:
+                type: string
+              amountDenom:
+                type: string
+              priceDenom:
+                type: string
+              orderId:
+                type: integer
+                format: int32
+      tags:
+        - Msg
+  /dastchain.dex.Msg/SendBuyOrder:
+    post:
+      operationId: DastchainDexMsg_SendBuyOrder
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              amountDenom:
+                type: string
+              amount:
+                type: integer
+                format: int32
+              priceDenom:
+                type: string
+              price:
+                type: integer
+                format: int32
+              creator:
+                type: string
+              port:
+                type: string
+              channelID:
+                type: string
+              timeoutTimestamp:
+                type: string
+                format: uint64
+      tags:
+        - Msg
+  /dastchain.dex.Msg/SendCreatePair:
+    post:
+      operationId: DastchainDexMsg_SendCreatePair
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              sourceDenom:
+                type: string
+              targetDenom:
+                type: string
+              creator:
+                type: string
+              port:
+                type: string
+              channelID:
+                type: string
+              timeoutTimestamp:
+                type: string
+                format: uint64
+      tags:
+        - Msg
+  /dastchain.dex.Msg/SendSellOrder:
+    post:
+      operationId: DastchainDexMsg_SendSellOrder
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              amountDenom:
+                type: string
+              amount:
+                type: integer
+                format: int32
+              priceDenom:
+                type: string
+              price:
+                type: integer
+                format: int32
+              creator:
+                type: string
+              port:
+                type: string
+              channelID:
+                type: string
+              timeoutTimestamp:
+                type: string
+                format: uint64
+      tags:
+        - Msg
+  /dastchain.dex.Msg/UpdateParams:
+    post:
+      summary: |-
+        UpdateParams defines a (governance) operation for updating the module
+        parameters. The authority defaults to the x/gov module account.
+      operationId: DastchainDexMsg_UpdateParams
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            description: >-
+              MsgUpdateParamsResponse defines the response structure for
+              executing a
+
+              MsgUpdateParams message.
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: body
+          description: MsgUpdateParams is the Msg/UpdateParams request type.
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              authority:
+                type: string
+                description: >-
+                  authority is the address that controls the module (defaults to
+                  x/gov unless overwritten).
+              params:
+                description: 'NOTE: All parameters must be supplied.'
+                type: object
+            description: MsgUpdateParams is the Msg/UpdateParams request type.
+      tags:
+        - Msg
+  /dastchain/dex/buy_order_book:
     get:
-      operationId: DastchainTokenfactoryQuery_DenomAll
+      operationId: DastchainDexQuery_BuyOrderBookAll
       responses:
         '200':
           description: A successful response.
           schema:
             type: object
             properties:
-              denom:
+              buyOrderBook:
                 type: array
                 items:
                   type: object
                   properties:
-                    denom:
+                    index:
                       type: string
-                    description:
+                    amountDenom:
                       type: string
-                    ticker:
-                      type: string
-                    precision:
-                      type: integer
-                      format: int32
-                    url:
-                      type: string
-                    maxSupply:
-                      type: integer
-                      format: int32
-                    supply:
-                      type: integer
-                      format: int32
-                    canChangeMaxSupply:
-                      type: boolean
-                    owner:
+                    priceDenom:
                       type: string
               pagination:
                 type: object
@@ -9200,39 +9490,24 @@ paths:
           type: boolean
       tags:
         - Query
-  /dastchain/tokenfactory/denom/{denom}:
+  /dastchain/dex/buy_order_book/{index}:
     get:
-      summary: Queries a list of Denom items.
-      operationId: DastchainTokenfactoryQuery_Denom
+      summary: Queries a list of BuyOrderBook items.
+      operationId: DastchainDexQuery_BuyOrderBook
       responses:
         '200':
           description: A successful response.
           schema:
             type: object
             properties:
-              denom:
+              buyOrderBook:
                 type: object
                 properties:
-                  denom:
+                  index:
                     type: string
-                  description:
+                  amountDenom:
                     type: string
-                  ticker:
-                    type: string
-                  precision:
-                    type: integer
-                    format: int32
-                  url:
-                    type: string
-                  maxSupply:
-                    type: integer
-                    format: int32
-                  supply:
-                    type: integer
-                    format: int32
-                  canChangeMaxSupply:
-                    type: boolean
-                  owner:
+                  priceDenom:
                     type: string
         default:
           description: An unexpected error response.
@@ -9253,16 +9528,189 @@ paths:
                       type: string
                   additionalProperties: {}
       parameters:
-        - name: denom
+        - name: index
           in: path
           required: true
           type: string
       tags:
         - Query
-  /dastchain/tokenfactory/params:
+  /dastchain/dex/denom_trace:
+    get:
+      operationId: DastchainDexQuery_DenomTraceAll
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              denomTrace:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    index:
+                      type: string
+                    port:
+                      type: string
+                    channel:
+                      type: string
+                    origin:
+                      type: string
+              pagination:
+                type: object
+                properties:
+                  next_key:
+                    type: string
+                    format: byte
+                    description: |-
+                      next_key is the key to be passed to PageRequest.key to
+                      query the next page most efficiently. It will be empty if
+                      there are no more results.
+                  total:
+                    type: string
+                    format: uint64
+                    title: >-
+                      total is total number of results available if
+                      PageRequest.count_total
+
+                      was set, its value is undefined otherwise
+                description: >-
+                  PageResponse is to be embedded in gRPC response messages where
+                  the
+
+                  corresponding request message has used PageRequest.
+
+                   message SomeResponse {
+                           repeated Bar results = 1;
+                           PageResponse page = 2;
+                   }
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: pagination.key
+          description: |-
+            key is a value returned in PageResponse.next_key to begin
+            querying the next page most efficiently. Only one of offset or key
+            should be set.
+          in: query
+          required: false
+          type: string
+          format: byte
+        - name: pagination.offset
+          description: >-
+            offset is a numeric offset that can be used when key is unavailable.
+
+            It is less efficient than using key. Only one of offset or key
+            should
+
+            be set.
+          in: query
+          required: false
+          type: string
+          format: uint64
+        - name: pagination.limit
+          description: >-
+            limit is the total number of results to be returned in the result
+            page.
+
+            If left empty it will default to a value to be set by each app.
+          in: query
+          required: false
+          type: string
+          format: uint64
+        - name: pagination.count_total
+          description: >-
+            count_total is set to true  to indicate that the result set should
+            include
+
+            a count of the total number of items available for pagination in
+            UIs.
+
+            count_total is only respected when offset is used. It is ignored
+            when key
+
+            is set.
+          in: query
+          required: false
+          type: boolean
+        - name: pagination.reverse
+          description: >-
+            reverse is set to true if results are to be returned in the
+            descending order.
+
+
+            Since: cosmos-sdk 0.43
+          in: query
+          required: false
+          type: boolean
+      tags:
+        - Query
+  /dastchain/dex/denom_trace/{index}:
+    get:
+      summary: Queries a list of DenomTrace items.
+      operationId: DastchainDexQuery_DenomTrace
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              denomTrace:
+                type: object
+                properties:
+                  index:
+                    type: string
+                  port:
+                    type: string
+                  channel:
+                    type: string
+                  origin:
+                    type: string
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: index
+          in: path
+          required: true
+          type: string
+      tags:
+        - Query
+  /dastchain/dex/params:
     get:
       summary: Parameters queries the parameters of the module.
-      operationId: DastchainTokenfactoryQuery_Params
+      operationId: DastchainDexQuery_Params
       responses:
         '200':
           description: A successful response.
@@ -9293,6 +9741,175 @@ paths:
                     '@type':
                       type: string
                   additionalProperties: {}
+      tags:
+        - Query
+  /dastchain/dex/sell_order_book:
+    get:
+      operationId: DastchainDexQuery_SellOrderBookAll
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              sellOrderBook:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    index:
+                      type: string
+                    amountDenom:
+                      type: string
+                    priceDenom:
+                      type: string
+              pagination:
+                type: object
+                properties:
+                  next_key:
+                    type: string
+                    format: byte
+                    description: |-
+                      next_key is the key to be passed to PageRequest.key to
+                      query the next page most efficiently. It will be empty if
+                      there are no more results.
+                  total:
+                    type: string
+                    format: uint64
+                    title: >-
+                      total is total number of results available if
+                      PageRequest.count_total
+
+                      was set, its value is undefined otherwise
+                description: >-
+                  PageResponse is to be embedded in gRPC response messages where
+                  the
+
+                  corresponding request message has used PageRequest.
+
+                   message SomeResponse {
+                           repeated Bar results = 1;
+                           PageResponse page = 2;
+                   }
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: pagination.key
+          description: |-
+            key is a value returned in PageResponse.next_key to begin
+            querying the next page most efficiently. Only one of offset or key
+            should be set.
+          in: query
+          required: false
+          type: string
+          format: byte
+        - name: pagination.offset
+          description: >-
+            offset is a numeric offset that can be used when key is unavailable.
+
+            It is less efficient than using key. Only one of offset or key
+            should
+
+            be set.
+          in: query
+          required: false
+          type: string
+          format: uint64
+        - name: pagination.limit
+          description: >-
+            limit is the total number of results to be returned in the result
+            page.
+
+            If left empty it will default to a value to be set by each app.
+          in: query
+          required: false
+          type: string
+          format: uint64
+        - name: pagination.count_total
+          description: >-
+            count_total is set to true  to indicate that the result set should
+            include
+
+            a count of the total number of items available for pagination in
+            UIs.
+
+            count_total is only respected when offset is used. It is ignored
+            when key
+
+            is set.
+          in: query
+          required: false
+          type: boolean
+        - name: pagination.reverse
+          description: >-
+            reverse is set to true if results are to be returned in the
+            descending order.
+
+
+            Since: cosmos-sdk 0.43
+          in: query
+          required: false
+          type: boolean
+      tags:
+        - Query
+  /dastchain/dex/sell_order_book/{index}:
+    get:
+      summary: Queries a list of SellOrderBook items.
+      operationId: DastchainDexQuery_SellOrderBook
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              sellOrderBook:
+                type: object
+                properties:
+                  index:
+                    type: string
+                  amountDenom:
+                    type: string
+                  priceDenom:
+                    type: string
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: index
+          in: path
+          required: true
+          type: string
       tags:
         - Query
   /dastchain.tokenfactory.Msg/CreateDenom:
@@ -9344,50 +9961,8 @@ paths:
               maxSupply:
                 type: integer
                 format: int32
-              supply:
-                type: integer
-                format: int32
               canChangeMaxSupply:
                 type: boolean
-      tags:
-        - Msg
-  /dastchain.tokenfactory.Msg/DeleteDenom:
-    post:
-      operationId: DastchainTokenfactoryMsg_DeleteDenom
-      responses:
-        '200':
-          description: A successful response.
-          schema:
-            type: object
-        default:
-          description: An unexpected error response.
-          schema:
-            type: object
-            properties:
-              code:
-                type: integer
-                format: int32
-              message:
-                type: string
-              details:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    '@type':
-                      type: string
-                  additionalProperties: {}
-      parameters:
-        - name: body
-          in: body
-          required: true
-          schema:
-            type: object
-            properties:
-              owner:
-                type: string
-              denom:
-                type: string
       tags:
         - Msg
   /dastchain.tokenfactory.Msg/UpdateDenom:
@@ -9429,17 +10004,9 @@ paths:
                 type: string
               description:
                 type: string
-              ticker:
-                type: string
-              precision:
-                type: integer
-                format: int32
               url:
                 type: string
               maxSupply:
-                type: integer
-                format: int32
-              supply:
                 type: integer
                 format: int32
               canChangeMaxSupply:
@@ -23094,6 +23661,128 @@ definitions:
   dastchain.dastchain.Params:
     type: object
     description: Params defines the parameters for the module.
+  dastchain.dex.MsgCancelBuyOrder:
+    type: object
+    properties:
+      creator:
+        type: string
+      port:
+        type: string
+      channel:
+        type: string
+      amountDenom:
+        type: string
+      priceDenom:
+        type: string
+      orderId:
+        type: integer
+        format: int32
+  dastchain.dex.MsgCancelBuyOrderResponse:
+    type: object
+  dastchain.dex.MsgCancelSellOrder:
+    type: object
+    properties:
+      creator:
+        type: string
+      port:
+        type: string
+      channel:
+        type: string
+      amountDenom:
+        type: string
+      priceDenom:
+        type: string
+      orderId:
+        type: integer
+        format: int32
+  dastchain.dex.MsgCancelSellOrderResponse:
+    type: object
+  dastchain.dex.MsgSendBuyOrder:
+    type: object
+    properties:
+      amountDenom:
+        type: string
+      amount:
+        type: integer
+        format: int32
+      priceDenom:
+        type: string
+      price:
+        type: integer
+        format: int32
+      creator:
+        type: string
+      port:
+        type: string
+      channelID:
+        type: string
+      timeoutTimestamp:
+        type: string
+        format: uint64
+  dastchain.dex.MsgSendBuyOrderResponse:
+    type: object
+  dastchain.dex.MsgSendCreatePair:
+    type: object
+    properties:
+      sourceDenom:
+        type: string
+      targetDenom:
+        type: string
+      creator:
+        type: string
+      port:
+        type: string
+      channelID:
+        type: string
+      timeoutTimestamp:
+        type: string
+        format: uint64
+  dastchain.dex.MsgSendCreatePairResponse:
+    type: object
+  dastchain.dex.MsgSendSellOrder:
+    type: object
+    properties:
+      amountDenom:
+        type: string
+      amount:
+        type: integer
+        format: int32
+      priceDenom:
+        type: string
+      price:
+        type: integer
+        format: int32
+      creator:
+        type: string
+      port:
+        type: string
+      channelID:
+        type: string
+      timeoutTimestamp:
+        type: string
+        format: uint64
+  dastchain.dex.MsgSendSellOrderResponse:
+    type: object
+  dastchain.dex.MsgUpdateParams:
+    type: object
+    properties:
+      authority:
+        type: string
+        description: >-
+          authority is the address that controls the module (defaults to x/gov
+          unless overwritten).
+      params:
+        description: 'NOTE: All parameters must be supplied.'
+        type: object
+    description: MsgUpdateParams is the Msg/UpdateParams request type.
+  dastchain.dex.MsgUpdateParamsResponse:
+    type: object
+    description: |-
+      MsgUpdateParamsResponse defines the response structure for executing a
+      MsgUpdateParams message.
+  dastchain.dex.Params:
+    type: object
+    description: Params defines the parameters for the module.
   cosmos.base.query.v1beta1.PageRequest:
     type: object
     properties:
@@ -23171,61 +23860,39 @@ definitions:
                repeated Bar results = 1;
                PageResponse page = 2;
        }
-  dastchain.tokenfactory.Denom:
+  dastchain.dex.BuyOrderBook:
     type: object
     properties:
-      denom:
+      index:
         type: string
-      description:
+      amountDenom:
         type: string
-      ticker:
+      priceDenom:
         type: string
-      precision:
-        type: integer
-        format: int32
-      url:
-        type: string
-      maxSupply:
-        type: integer
-        format: int32
-      supply:
-        type: integer
-        format: int32
-      canChangeMaxSupply:
-        type: boolean
-      owner:
-        type: string
-  dastchain.tokenfactory.Params:
-    type: object
-    description: Params defines the parameters for the module.
-  dastchain.tokenfactory.QueryAllDenomResponse:
+  dastchain.dex.DenomTrace:
     type: object
     properties:
-      denom:
+      index:
+        type: string
+      port:
+        type: string
+      channel:
+        type: string
+      origin:
+        type: string
+  dastchain.dex.QueryAllBuyOrderBookResponse:
+    type: object
+    properties:
+      buyOrderBook:
         type: array
         items:
           type: object
           properties:
-            denom:
+            index:
               type: string
-            description:
+            amountDenom:
               type: string
-            ticker:
-              type: string
-            precision:
-              type: integer
-              format: int32
-            url:
-              type: string
-            maxSupply:
-              type: integer
-              format: int32
-            supply:
-              type: integer
-              format: int32
-            canChangeMaxSupply:
-              type: boolean
-            owner:
+            priceDenom:
               type: string
       pagination:
         type: object
@@ -23253,40 +23920,142 @@ definitions:
                    repeated Bar results = 1;
                    PageResponse page = 2;
            }
-  dastchain.tokenfactory.QueryGetDenomResponse:
+  dastchain.dex.QueryAllDenomTraceResponse:
     type: object
     properties:
-      denom:
+      denomTrace:
+        type: array
+        items:
+          type: object
+          properties:
+            index:
+              type: string
+            port:
+              type: string
+            channel:
+              type: string
+            origin:
+              type: string
+      pagination:
         type: object
         properties:
-          denom:
+          next_key:
             type: string
-          description:
+            format: byte
+            description: |-
+              next_key is the key to be passed to PageRequest.key to
+              query the next page most efficiently. It will be empty if
+              there are no more results.
+          total:
             type: string
-          ticker:
+            format: uint64
+            title: >-
+              total is total number of results available if
+              PageRequest.count_total
+
+              was set, its value is undefined otherwise
+        description: |-
+          PageResponse is to be embedded in gRPC response messages where the
+          corresponding request message has used PageRequest.
+
+           message SomeResponse {
+                   repeated Bar results = 1;
+                   PageResponse page = 2;
+           }
+  dastchain.dex.QueryAllSellOrderBookResponse:
+    type: object
+    properties:
+      sellOrderBook:
+        type: array
+        items:
+          type: object
+          properties:
+            index:
+              type: string
+            amountDenom:
+              type: string
+            priceDenom:
+              type: string
+      pagination:
+        type: object
+        properties:
+          next_key:
             type: string
-          precision:
-            type: integer
-            format: int32
-          url:
+            format: byte
+            description: |-
+              next_key is the key to be passed to PageRequest.key to
+              query the next page most efficiently. It will be empty if
+              there are no more results.
+          total:
             type: string
-          maxSupply:
-            type: integer
-            format: int32
-          supply:
-            type: integer
-            format: int32
-          canChangeMaxSupply:
-            type: boolean
-          owner:
+            format: uint64
+            title: >-
+              total is total number of results available if
+              PageRequest.count_total
+
+              was set, its value is undefined otherwise
+        description: |-
+          PageResponse is to be embedded in gRPC response messages where the
+          corresponding request message has used PageRequest.
+
+           message SomeResponse {
+                   repeated Bar results = 1;
+                   PageResponse page = 2;
+           }
+  dastchain.dex.QueryGetBuyOrderBookResponse:
+    type: object
+    properties:
+      buyOrderBook:
+        type: object
+        properties:
+          index:
             type: string
-  dastchain.tokenfactory.QueryParamsResponse:
+          amountDenom:
+            type: string
+          priceDenom:
+            type: string
+  dastchain.dex.QueryGetDenomTraceResponse:
+    type: object
+    properties:
+      denomTrace:
+        type: object
+        properties:
+          index:
+            type: string
+          port:
+            type: string
+          channel:
+            type: string
+          origin:
+            type: string
+  dastchain.dex.QueryGetSellOrderBookResponse:
+    type: object
+    properties:
+      sellOrderBook:
+        type: object
+        properties:
+          index:
+            type: string
+          amountDenom:
+            type: string
+          priceDenom:
+            type: string
+  dastchain.dex.QueryParamsResponse:
     type: object
     properties:
       params:
         description: params holds all the parameters of this module.
         type: object
     description: QueryParamsResponse is response type for the Query/Params RPC method.
+  dastchain.dex.SellOrderBook:
+    type: object
+    properties:
+      index:
+        type: string
+      amountDenom:
+        type: string
+      priceDenom:
+        type: string
   dastchain.tokenfactory.MsgCreateDenom:
     type: object
     properties:
@@ -23306,21 +24075,9 @@ definitions:
       maxSupply:
         type: integer
         format: int32
-      supply:
-        type: integer
-        format: int32
       canChangeMaxSupply:
         type: boolean
   dastchain.tokenfactory.MsgCreateDenomResponse:
-    type: object
-  dastchain.tokenfactory.MsgDeleteDenom:
-    type: object
-    properties:
-      owner:
-        type: string
-      denom:
-        type: string
-  dastchain.tokenfactory.MsgDeleteDenomResponse:
     type: object
   dastchain.tokenfactory.MsgUpdateDenom:
     type: object
@@ -23331,17 +24088,9 @@ definitions:
         type: string
       description:
         type: string
-      ticker:
-        type: string
-      precision:
-        type: integer
-        format: int32
       url:
         type: string
       maxSupply:
-        type: integer
-        format: int32
-      supply:
         type: integer
         format: int32
       canChangeMaxSupply:
@@ -23365,6 +24114,9 @@ definitions:
     description: |-
       MsgUpdateParamsResponse defines the response structure for executing a
       MsgUpdateParams message.
+  dastchain.tokenfactory.Params:
+    type: object
+    description: Params defines the parameters for the module.
   ibc.applications.fee.v1.Fee:
     type: object
     properties:
