@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package dastchain.tokenfactory;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "dastchain/tokenfactory/params.proto";
+import "dastchain/tokenfactory/denom.proto";
+
+option go_package = "dastchain/x/tokenfactory/types";
+
+// GenesisState defines the tokenfactory module's genesis state.
+message GenesisState {
+  
+  // params defines all the parameters of the module.
+           Params params    = 1 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
+  repeated Denom  denomList = 2 [(gogoproto.nullable) = false] ;
+}
+

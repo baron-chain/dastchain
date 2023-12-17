@@ -1,21 +1,33 @@
 version: 1
 accounts:
-- name: alice
+- name: dcval1
   coins:
   - 20000token
   - 200000000stake
-- name: bob
+- name: dc1faucet
   coins:
   - 10000token
   - 100000000stake
-client:
-  openapi:
-    path: docs/static/openapi.yml
+- name: diana
+  coins:
+  - 1000token
+  - 10000000stake
 faucet:
-  name: bob
+  name: dc1faucet
   coins:
   - 5token
   - 100000stake
+  port: 5555
+host:
+  rpc: ":25559"
+  p2p: ":25558"
+  prof: ":6061"
+  grpc: ":9092"
+  grpc-web: ":9093"
+  api: ":4444"
+client:
+  openapi:
+    path: docs/static/openapi.yml
 validators:
-- name: alice
+- name: dcval1
   bonded: 100000000stake
