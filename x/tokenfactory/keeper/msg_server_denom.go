@@ -57,6 +57,12 @@ func (k msgServer) UpdateDenom(goCtx context.Context, msg *types.MsgUpdateDenom)
 	if msg.Owner != valFound.Owner {
 		return nil, errorsmod.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
 	}
+	if !valFound.CanChangeMaxSupply && valFound.MaxSupply != msg.MaxSupply {
+		return nil, errorsmod.Wrap(sdkerrors.ErrUnauthorized, "cannot change maxsupply")
+	}
+	if !valFound.CanChangeMaxSupply && msg.CanChangeMaxSupply {
+		return nil, errorsmod.Wrap(sdkerrors.ErrUnauthorized, "Cannot revert change maxsupply flag")
+	}
 
 	var denom = types.Denom{
 		Owner:              msg.Owner,
