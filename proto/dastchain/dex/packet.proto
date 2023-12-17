@@ -1,0 +1,13 @@
+syntax = "proto3";
+package dastchain.dex;
+
+option go_package = "dastchain/x/dex/types";
+
+message DexPacketData {
+    oneof packet {
+        NoData noData = 1;
+    }
+}
+
+message NoData {
+}

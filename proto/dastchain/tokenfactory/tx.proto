@@ -20,7 +20,6 @@ service Msg {
   rpc UpdateParams (MsgUpdateParams) returns (MsgUpdateParamsResponse);
   rpc CreateDenom  (MsgCreateDenom ) returns (MsgCreateDenomResponse );
   rpc UpdateDenom  (MsgUpdateDenom ) returns (MsgUpdateDenomResponse );
-  rpc DeleteDenom  (MsgDeleteDenom ) returns (MsgDeleteDenomResponse );
 }
 // MsgUpdateParams is the Msg/UpdateParams request type.
 message MsgUpdateParams {

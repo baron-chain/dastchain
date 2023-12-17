@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package dastchain.dex;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "dastchain/dex/params.proto";
+
+option go_package = "dastchain/x/dex/types";
+
+// GenesisState defines the dex module's genesis state.
+message GenesisState {
+  
+  // params defines all the parameters of the module.
+  Params params  = 1 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
+  string port_id = 2;
+}
+
