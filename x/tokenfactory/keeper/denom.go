@@ -3,9 +3,10 @@ package keeper
 import (
 	"context"
 
+	"dastchain/x/tokenfactory/types"
+
 	"cosmossdk.io/store/prefix"
 	storetypes "cosmossdk.io/store/types"
-	"dastchain/x/tokenfactory/types"
 	"github.com/cosmos/cosmos-sdk/runtime"
 )
 
@@ -37,19 +38,6 @@ func (k Keeper) GetDenom(
 
 	k.cdc.MustUnmarshal(b, &val)
 	return val, true
-}
-
-// RemoveDenom removes a denom from the store
-func (k Keeper) RemoveDenom(
-	ctx context.Context,
-	denom string,
-
-) {
-	storeAdapter := runtime.KVStoreAdapter(k.storeService.OpenKVStore(ctx))
-	store := prefix.NewStore(storeAdapter, types.KeyPrefix(types.DenomKeyPrefix))
-	store.Delete(types.DenomKey(
-		denom,
-	))
 }
 
 // GetAllDenom returns all denom

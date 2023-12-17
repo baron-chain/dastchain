@@ -70,11 +70,3 @@ message MsgUpdateDenom {
 
 message MsgUpdateDenomResponse {}
 
-message MsgDeleteDenom {
-  option (cosmos.msg.v1.signer) = "owner";
-  string owner = 1;
-  string denom = 2;
-}
-
-message MsgDeleteDenomResponse {}
-
