@@ -51,11 +51,6 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					Short:          "Update Denom",
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "description"}, {ProtoField: "ticker"}, {ProtoField: "precision"}, {ProtoField: "url"}, {ProtoField: "maxSupply"}, {ProtoField: "supply"}, {ProtoField: "canChangeMaxSupply"}, {ProtoField: "denom"}},
 				},
-				{
-					RpcMethod: "DeleteDenom",
-					Use:       "delete-denom",
-					Short:     "Delete Denom",
-				},
 				// this line is used by ignite scaffolding # autocli/tx
 			},
 		},

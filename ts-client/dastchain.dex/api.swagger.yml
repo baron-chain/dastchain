@@ -1,0 +1,594 @@
+swagger: '2.0'
+info:
+  title: HTTP API Console dastchain.dex
+  name: ''
+  description: ''
+paths:
+  /dastchain/dex/buy_order_book:
+    get:
+      operationId: Query_BuyOrderBookAll
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              buyOrderBook:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    index:
+                      type: string
+                    amountDenom:
+                      type: string
+                    priceDenom:
+                      type: string
+              pagination:
+                type: object
+                properties:
+                  next_key:
+                    type: string
+                    format: byte
+                  total:
+                    type: string
+                    format: uint64
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: pagination.key
+          in: query
+          required: false
+          type: string
+          format: byte
+        - name: pagination.offset
+          in: query
+          required: false
+          type: string
+          format: uint64
+        - name: pagination.limit
+          in: query
+          required: false
+          type: string
+          format: uint64
+        - name: pagination.count_total
+          in: query
+          required: false
+          type: boolean
+        - name: pagination.reverse
+          in: query
+          required: false
+          type: boolean
+      tags:
+        - Query
+  /dastchain/dex/buy_order_book/{index}:
+    get:
+      operationId: Query_BuyOrderBook
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              buyOrderBook:
+                type: object
+                properties:
+                  index:
+                    type: string
+                  amountDenom:
+                    type: string
+                  priceDenom:
+                    type: string
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: index
+          in: path
+          required: true
+          type: string
+      tags:
+        - Query
+  /dastchain/dex/denom_trace:
+    get:
+      operationId: Query_DenomTraceAll
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              denomTrace:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    index:
+                      type: string
+                    port:
+                      type: string
+                    channel:
+                      type: string
+                    origin:
+                      type: string
+              pagination:
+                type: object
+                properties:
+                  next_key:
+                    type: string
+                    format: byte
+                  total:
+                    type: string
+                    format: uint64
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: pagination.key
+          in: query
+          required: false
+          type: string
+          format: byte
+        - name: pagination.offset
+          in: query
+          required: false
+          type: string
+          format: uint64
+        - name: pagination.limit
+          in: query
+          required: false
+          type: string
+          format: uint64
+        - name: pagination.count_total
+          in: query
+          required: false
+          type: boolean
+        - name: pagination.reverse
+          in: query
+          required: false
+          type: boolean
+      tags:
+        - Query
+  /dastchain/dex/denom_trace/{index}:
+    get:
+      operationId: Query_DenomTrace
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              denomTrace:
+                type: object
+                properties:
+                  index:
+                    type: string
+                  port:
+                    type: string
+                  channel:
+                    type: string
+                  origin:
+                    type: string
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: index
+          in: path
+          required: true
+          type: string
+      tags:
+        - Query
+  /dastchain/dex/params:
+    get:
+      operationId: Query_Params
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              params:
+                type: object
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      tags:
+        - Query
+  /dastchain/dex/sell_order_book:
+    get:
+      operationId: Query_SellOrderBookAll
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              sellOrderBook:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    index:
+                      type: string
+                    amountDenom:
+                      type: string
+                    priceDenom:
+                      type: string
+              pagination:
+                type: object
+                properties:
+                  next_key:
+                    type: string
+                    format: byte
+                  total:
+                    type: string
+                    format: uint64
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: pagination.key
+          in: query
+          required: false
+          type: string
+          format: byte
+        - name: pagination.offset
+          in: query
+          required: false
+          type: string
+          format: uint64
+        - name: pagination.limit
+          in: query
+          required: false
+          type: string
+          format: uint64
+        - name: pagination.count_total
+          in: query
+          required: false
+          type: boolean
+        - name: pagination.reverse
+          in: query
+          required: false
+          type: boolean
+      tags:
+        - Query
+  /dastchain/dex/sell_order_book/{index}:
+    get:
+      operationId: Query_SellOrderBook
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              sellOrderBook:
+                type: object
+                properties:
+                  index:
+                    type: string
+                  amountDenom:
+                    type: string
+                  priceDenom:
+                    type: string
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: index
+          in: path
+          required: true
+          type: string
+      tags:
+        - Query
+definitions:
+  Any:
+    type: object
+    properties:
+      '@type':
+        type: string
+    additionalProperties: {}
+  Status:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          type: object
+          properties:
+            '@type':
+              type: string
+          additionalProperties: {}
+  BuyOrderBook:
+    type: object
+    properties:
+      index:
+        type: string
+      amountDenom:
+        type: string
+      priceDenom:
+        type: string
+  DenomTrace:
+    type: object
+    properties:
+      index:
+        type: string
+      port:
+        type: string
+      channel:
+        type: string
+      origin:
+        type: string
+  PageRequest:
+    type: object
+    properties:
+      key:
+        type: string
+        format: byte
+      offset:
+        type: string
+        format: uint64
+      limit:
+        type: string
+        format: uint64
+      count_total:
+        type: boolean
+      reverse:
+        type: boolean
+  PageResponse:
+    type: object
+    properties:
+      next_key:
+        type: string
+        format: byte
+      total:
+        type: string
+        format: uint64
+  Params:
+    type: object
+  QueryAllBuyOrderBookResponse:
+    type: object
+    properties:
+      buyOrderBook:
+        type: array
+        items:
+          type: object
+          properties:
+            index:
+              type: string
+            amountDenom:
+              type: string
+            priceDenom:
+              type: string
+      pagination:
+        type: object
+        properties:
+          next_key:
+            type: string
+            format: byte
+          total:
+            type: string
+            format: uint64
+  QueryAllDenomTraceResponse:
+    type: object
+    properties:
+      denomTrace:
+        type: array
+        items:
+          type: object
+          properties:
+            index:
+              type: string
+            port:
+              type: string
+            channel:
+              type: string
+            origin:
+              type: string
+      pagination:
+        type: object
+        properties:
+          next_key:
+            type: string
+            format: byte
+          total:
+            type: string
+            format: uint64
+  QueryAllSellOrderBookResponse:
+    type: object
+    properties:
+      sellOrderBook:
+        type: array
+        items:
+          type: object
+          properties:
+            index:
+              type: string
+            amountDenom:
+              type: string
+            priceDenom:
+              type: string
+      pagination:
+        type: object
+        properties:
+          next_key:
+            type: string
+            format: byte
+          total:
+            type: string
+            format: uint64
+  QueryGetBuyOrderBookResponse:
+    type: object
+    properties:
+      buyOrderBook:
+        type: object
+        properties:
+          index:
+            type: string
+          amountDenom:
+            type: string
+          priceDenom:
+            type: string
+  QueryGetDenomTraceResponse:
+    type: object
+    properties:
+      denomTrace:
+        type: object
+        properties:
+          index:
+            type: string
+          port:
+            type: string
+          channel:
+            type: string
+          origin:
+            type: string
+  QueryGetSellOrderBookResponse:
+    type: object
+    properties:
+      sellOrderBook:
+        type: object
+        properties:
+          index:
+            type: string
+          amountDenom:
+            type: string
+          priceDenom:
+            type: string
+  QueryParamsResponse:
+    type: object
+    properties:
+      params:
+        type: object
+  SellOrderBook:
+    type: object
+    properties:
+      index:
+        type: string
+      amountDenom:
+        type: string
+      priceDenom:
+        type: string
+  MsgCancelBuyOrderResponse:
+    type: object
+  MsgCancelSellOrderResponse:
+    type: object
+  MsgSendBuyOrderResponse:
+    type: object
+  MsgSendCreatePairResponse:
+    type: object
+  MsgSendSellOrderResponse:
+    type: object
+  MsgUpdateParamsResponse:
+    type: object

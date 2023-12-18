@@ -115,10 +115,6 @@ func NewRootCmd() *cobra.Command {
 		flags.FlagKeyringBackend: "test",
 	})
 
-	if err := autoCliOpts.EnhanceRootCommand(rootCmd); err != nil {
-		panic(err)
-	}
-
 	return rootCmd
 }
 
