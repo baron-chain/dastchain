@@ -1,7 +1,7 @@
 {
   "app_name": "dastchaind",
   "app_version": "",
-  "genesis_time": "2023-12-20T20:09:11.615268487Z",
+  "genesis_time": "2023-12-20T21:44:16.799312518Z",
   "chain_id": "dastchain",
   "initial_height": 1,
   "app_hash": null,
@@ -17,21 +17,21 @@
       "accounts": [
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "dast1rayfkarpveyprzxtqu8hta4eykdcxkhh3x5cje",
+          "address": "dast1rcyc26eeslzjjuayle7gqn6n74395pw7jn3s0h",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "dast1ymatnu90nxkcwq68dlftm7mk7yerxss54zkcqj",
+          "address": "dast13jkg30vvuaqx8xtcrh9lm547qmx76lnhqkgv07",
           "pub_key": null,
           "account_number": "1",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "dast1ak3ezn5w9h0a9f76f6pnhrucd8gt7dnwdhyq4q",
+          "address": "dast17z5qy077eecjlakq9lav4t8z5ahkgjhcuaeq84",
           "pub_key": null,
           "account_number": "2",
           "sequence": "0"
@@ -48,11 +48,11 @@
       },
       "balances": [
         {
-          "address": "dast1rayfkarpveyprzxtqu8hta4eykdcxkhh3x5cje",
+          "address": "dast1rcyc26eeslzjjuayle7gqn6n74395pw7jn3s0h",
           "coins": [
             {
-              "denom": "uedst",
-              "amount": "4200000000000000"
+              "denom": "edst",
+              "amount": "4200000000"
             },
             {
               "denom": "xbar",
@@ -61,11 +61,11 @@
           ]
         },
         {
-          "address": "dast1ymatnu90nxkcwq68dlftm7mk7yerxss54zkcqj",
+          "address": "dast13jkg30vvuaqx8xtcrh9lm547qmx76lnhqkgv07",
           "coins": [
             {
-              "denom": "uedst",
-              "amount": "100000000"
+              "denom": "edst",
+              "amount": "100"
             },
             {
               "denom": "xbar",
@@ -74,11 +74,11 @@
           ]
         },
         {
-          "address": "dast1ak3ezn5w9h0a9f76f6pnhrucd8gt7dnwdhyq4q",
+          "address": "dast17z5qy077eecjlakq9lav4t8z5ahkgjhcuaeq84",
           "coins": [
             {
-              "denom": "uedst",
-              "amount": "10000000"
+              "denom": "edst",
+              "amount": "10000"
             },
             {
               "denom": "xbar",
@@ -89,8 +89,8 @@
       ],
       "supply": [
         {
-          "denom": "uedst",
-          "amount": "4200000110000000"
+          "denom": "edst",
+          "amount": "4200010100"
         },
         {
           "denom": "xbar",
@@ -110,7 +110,10 @@
     },
     "consensus": null,
     "crisis": {
-      "constant_fee": "1500000000uedst"
+      "constant_fee": {
+        "amount": "1500",
+        "denom": "edst"
+      }
     },
     "dastchain": {
       "params": {}
@@ -155,7 +158,70 @@
       "registered_payees": []
     },
     "genutil": {
-      "gen_txs": []
+      "gen_txs": [
+        {
+          "body": {
+            "messages": [
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+                "description": {
+                  "moniker": "mynode",
+                  "identity": "",
+                  "website": "",
+                  "security_contact": "",
+                  "details": ""
+                },
+                "commission": {
+                  "rate": "0.100000000000000000",
+                  "max_rate": "0.200000000000000000",
+                  "max_change_rate": "0.010000000000000000"
+                },
+                "min_self_delegation": "1",
+                "delegator_address": "",
+                "validator_address": "dastvaloper1rcyc26eeslzjjuayle7gqn6n74395pw75qdp73",
+                "pubkey": {
+                  "@type": "/cosmos.crypto.ed25519.PubKey",
+                  "key": "Wxi9kwFZKmYCGXohpq8Iq5e2Wd5foyZm/t3CoEDAXos="
+                },
+                "value": {
+                  "denom": "edst",
+                  "amount": "1000000000"
+                }
+              }
+            ],
+            "memo": "47374f70a52d5557542429c9e3afb0fb1ed35bf9@172.31.29.189:26656",
+            "timeout_height": "0",
+            "extension_options": [],
+            "non_critical_extension_options": []
+          },
+          "auth_info": {
+            "signer_infos": [
+              {
+                "public_key": {
+                  "@type": "/cosmos.crypto.secp256k1.PubKey",
+                  "key": "ArscnFT9wPKPw4jEAsTsagLhGIK+v9lFxDPYTqgoC2qj"
+                },
+                "mode_info": {
+                  "single": {
+                    "mode": "SIGN_MODE_DIRECT"
+                  }
+                },
+                "sequence": "0"
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas_limit": "200000",
+              "payer": "",
+              "granter": ""
+            },
+            "tip": null
+          },
+          "signatures": [
+            "AnLi9A/tuZrT5nzEPx8kMJUstC/5ahk5sH5/GCqg1+cvFG4ASkHwgMmy1j1Qz8YKZQG9xRkb4D3U8zhKBxFVsw=="
+          ]
+        }
+      ]
     },
     "gov": {
       "constitution": "",
@@ -271,7 +337,7 @@
         "inflation_max": "0.200000000000000000",
         "inflation_min": "0.070000000000000000",
         "inflation_rate_change": "0.130000000000000000",
-        "mint_denom": "stake"
+        "mint_denom": "edst"
       }
     },
     "params": null,
@@ -293,10 +359,10 @@
       "last_total_power": "0",
       "last_validator_powers": [],
       "params": {
-        "bond_denom": "stake",
+        "bond_denom": "edst",
         "historical_entries": 10000,
         "max_entries": 7,
-        "max_validators": 100,
+        "max_validators": "47",
         "min_commission_rate": "0.000000000000000000",
         "unbonding_time": "1814400s"
       },
