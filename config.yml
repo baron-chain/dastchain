@@ -17,7 +17,33 @@ faucet:
   coins:
   - 5xbar
   - 100000uedst
-  port: 5555
+genesis:
+  app_state:
+    crisis:
+      constant_fee:
+        denom: uedst
+        amount: '1500000000'
+    distribution:
+      params:
+        community_tax: '0.010000000000000000'
+        base_proposer_reward: '0.010000000000000000'
+        bonus_proposer_reward: '0.050000000000000000'
+    gov:
+      params:
+        expedited_min_deposit: 
+          amount: '500000000'
+          denom: uedst
+        min_deposit: 
+          amount: '100000000'
+          denom: uedst
+    mint:
+      params:
+        mint_denom: uedst
+    staking:
+      params:
+        bond_denom: uedst
+        max_validators: '47'
+        unbonding_time: '1814400s'
 client:
   typescript:
     path: ts-client
