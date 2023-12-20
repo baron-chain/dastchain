@@ -3,26 +3,26 @@ accounts:
 - name: dcval1
   coins:
   - 4200000xbar
-  - 4200000000000000uedst
+  - 4200000000edst
 - name: dc1faucet
   coins:
   - 10000xbar
-  - 100000000uedst
+  - 100edst
 - name: diana
   coins:
   - 100000xbar
-  - 10000000uedst
+  - 10000edst
 faucet:
   name: dc1faucet
   coins:
   - 5xbar
-  - 100000uedst
+  - 100edst
 genesis:
   app_state:
     crisis:
       constant_fee:
-        denom: uedst
-        amount: '1500000000'
+        denom: edst
+        amount: '1500'
     distribution:
       params:
         community_tax: '0.010000000000000000'
@@ -31,17 +31,17 @@ genesis:
     gov:
       params:
         expedited_min_deposit: 
-          amount: '500000000'
-          denom: uedst
+          amount: '500'
+          denom: edst
         min_deposit: 
-          amount: '100000000'
-          denom: uedst
+          amount: '100'
+          denom: edst
     mint:
       params:
-        mint_denom: uedst
+        mint_denom: edst
     staking:
       params:
-        bond_denom: uedst
+        bond_denom: edst
         max_validators: '47'
         unbonding_time: '1814400s'
 client:
@@ -51,4 +51,4 @@ client:
     path: vue/src/composables
 validators:
 - name: dcval1
-  bonded: 1000000000uedst
+  bonded: 1000000000edst
