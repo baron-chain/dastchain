@@ -1,8 +1,8 @@
 {
-  "app_name": "dastchaind",
+  "app_name": "dastd",
   "app_version": "",
   "genesis_time": "2023-12-20T21:44:16.799312518Z",
-  "chain_id": "dastchain",
+  "chain_id": "dast-chain",
   "initial_height": 1,
   "app_hash": null,
   "app_state": {

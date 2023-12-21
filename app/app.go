@@ -56,6 +56,7 @@ import (
 	dastchainmodulekeeper "dastchain/x/dastchain/keeper"
 	dexmodulekeeper "dastchain/x/dex/keeper"
 	tokenfactorymodulekeeper "dastchain/x/tokenfactory/keeper"
+
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 
 	"dastchain/docs"
@@ -63,7 +64,7 @@ import (
 
 const (
 	AccountAddressPrefix = "dast"
-	Name                 = "dastchain"
+	Name                 = "dast"
 )
 
 var (
