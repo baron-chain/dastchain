@@ -1,8 +1,8 @@
 {
   "app_name": "dastchaind",
   "app_version": "",
-  "genesis_time": "2023-12-20T21:44:16.799312518Z",
-  "chain_id": "dast-chain",
+  "genesis_time": "0001-01-01T00:00:00Z",
+  "chain_id": "dast-1",
   "initial_height": 1,
   "app_hash": null,
   "app_state": {
@@ -14,29 +14,7 @@
         "sig_verify_cost_ed25519": "590",
         "sig_verify_cost_secp256k1": "1000"
       },
-      "accounts": [
-        {
-          "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "dast1rcyc26eeslzjjuayle7gqn6n74395pw7jn3s0h",
-          "pub_key": null,
-          "account_number": "0",
-          "sequence": "0"
-        },
-        {
-          "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "dast13jkg30vvuaqx8xtcrh9lm547qmx76lnhqkgv07",
-          "pub_key": null,
-          "account_number": "1",
-          "sequence": "0"
-        },
-        {
-          "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "dast17z5qy077eecjlakq9lav4t8z5ahkgjhcuaeq84",
-          "pub_key": null,
-          "account_number": "2",
-          "sequence": "0"
-        }
-      ]
+      "accounts": []
     },
     "authz": {
       "authorization": []
@@ -46,57 +24,8 @@
         "send_enabled": [],
         "default_send_enabled": true
       },
-      "balances": [
-        {
-          "address": "dast1rcyc26eeslzjjuayle7gqn6n74395pw7jn3s0h",
-          "coins": [
-            {
-              "denom": "edst",
-              "amount": "4200000000"
-            },
-            {
-              "denom": "xbar",
-              "amount": "4200000"
-            }
-          ]
-        },
-        {
-          "address": "dast13jkg30vvuaqx8xtcrh9lm547qmx76lnhqkgv07",
-          "coins": [
-            {
-              "denom": "edst",
-              "amount": "100"
-            },
-            {
-              "denom": "xbar",
-              "amount": "10000"
-            }
-          ]
-        },
-        {
-          "address": "dast17z5qy077eecjlakq9lav4t8z5ahkgjhcuaeq84",
-          "coins": [
-            {
-              "denom": "edst",
-              "amount": "10000"
-            },
-            {
-              "denom": "xbar",
-              "amount": "100000"
-            }
-          ]
-        }
-      ],
-      "supply": [
-        {
-          "denom": "edst",
-          "amount": "4200010100"
-        },
-        {
-          "denom": "xbar",
-          "amount": "4310000"
-        }
-      ],
+      "balances": [],
+      "supply": [],
       "denom_metadata": [],
       "send_enabled": []
     },
@@ -111,37 +40,37 @@
     "consensus": null,
     "crisis": {
       "constant_fee": {
-        "amount": "1500",
-        "denom": "edst"
+        "denom": "edst",
+        "amount": "1000"
       }
     },
     "dastchain": {
       "params": {}
     },
     "dex": {
-      "buyOrderBookList": [],
-      "denomTraceList": [],
       "params": {},
       "port_id": "dex",
-      "sellOrderBookList": []
+      "sellOrderBookList": [],
+      "buyOrderBookList": [],
+      "denomTraceList": []
     },
     "distribution": {
-      "delegator_starting_infos": [],
-      "delegator_withdraw_infos": [],
+      "params": {
+        "community_tax": "0.020000000000000000",
+        "base_proposer_reward": "0.000000000000000000",
+        "bonus_proposer_reward": "0.000000000000000000",
+        "withdraw_addr_enabled": true
+      },
       "fee_pool": {
         "community_pool": []
       },
-      "outstanding_rewards": [],
-      "params": {
-        "base_proposer_reward": "0.010000000000000000",
-        "bonus_proposer_reward": "0.050000000000000000",
-        "community_tax": "0.010000000000000000",
-        "withdraw_addr_enabled": true
-      },
+      "delegator_withdraw_infos": [],
       "previous_proposer": "",
+      "outstanding_rewards": [],
       "validator_accumulated_commissions": [],
-      "validator_current_rewards": [],
       "validator_historical_rewards": [],
+      "validator_current_rewards": [],
+      "delegator_starting_infos": [],
       "validator_slash_events": []
     },
     "evidence": {
@@ -151,170 +80,173 @@
       "allowances": []
     },
     "feeibc": {
-      "fee_enabled_channels": [],
-      "forward_relayers": [],
       "identified_fees": [],
+      "fee_enabled_channels": [],
+      "registered_payees": [],
       "registered_counterparty_payees": [],
-      "registered_payees": []
+      "forward_relayers": []
+    },
+    "genutil": {
+      "gen_txs": []
     },
     "gov": {
-      "constitution": "",
-      "deposit_params": null,
+      "starting_proposal_id": "1",
       "deposits": [],
+      "votes": [],
+      "proposals": [],
+      "deposit_params": null,
+      "voting_params": null,
+      "tally_params": null,
       "params": {
-        "burn_proposal_deposit_prevote": false,
-        "burn_vote_quorum": false,
-        "burn_vote_veto": true,
-        "expedited_min_deposit": [
-          {
-            "amount": "50000000",
-            "denom": "stake"
-          }
-        ],
-        "expedited_threshold": "0.667000000000000000",
-        "expedited_voting_period": "86400s",
-        "max_deposit_period": "172800s",
         "min_deposit": [
           {
-            "amount": "10000000",
-            "denom": "stake"
+            "denom": "edst",
+            "amount": "100"
           }
         ],
-        "min_deposit_ratio": "0.010000000000000000",
-        "min_initial_deposit_ratio": "0.000000000000000000",
-        "proposal_cancel_dest": "",
-        "proposal_cancel_ratio": "0.500000000000000000",
+        "max_deposit_period": "172800s",
+        "voting_period": "172800s",
         "quorum": "0.334000000000000000",
         "threshold": "0.500000000000000000",
         "veto_threshold": "0.334000000000000000",
-        "voting_period": "172800s"
+        "min_initial_deposit_ratio": "0.000000000000000000",
+        "proposal_cancel_ratio": "0.500000000000000000",
+        "proposal_cancel_dest": "",
+        "expedited_voting_period": "86400s",
+        "expedited_threshold": "0.667000000000000000",
+        "expedited_min_deposit": [
+          {
+            "denom": "edst",
+            "amount": "500"
+          }
+        ],
+        "burn_vote_quorum": false,
+        "burn_proposal_deposit_prevote": false,
+        "burn_vote_veto": true,
+        "min_deposit_ratio": "0.010000000000000000"
       },
-      "proposals": [],
-      "starting_proposal_id": "1",
-      "tally_params": null,
-      "votes": [],
-      "voting_params": null
+      "constitution": ""
     },
     "group": {
-      "group_members": [],
-      "group_policies": [],
-      "group_policy_seq": "0",
       "group_seq": "0",
       "groups": [],
+      "group_members": [],
+      "group_policy_seq": "0",
+      "group_policies": [],
       "proposal_seq": "0",
       "proposals": [],
       "votes": []
     },
     "ibc": {
-      "channel_genesis": {
-        "ack_sequences": [],
-        "acknowledgements": [],
-        "channels": [],
-        "commitments": [],
-        "next_channel_sequence": "0",
-        "receipts": [],
-        "recv_sequences": [],
-        "send_sequences": []
-      },
       "client_genesis": {
         "clients": [],
         "clients_consensus": [],
         "clients_metadata": [],
-        "create_localhost": false,
-        "next_client_sequence": "0",
         "params": {
           "allowed_clients": [
             "06-solomachine",
             "07-tendermint",
             "09-localhost"
           ]
-        }
+        },
+        "create_localhost": false,
+        "next_client_sequence": "0"
       },
       "connection_genesis": {
-        "client_connection_paths": [],
         "connections": [],
+        "client_connection_paths": [],
         "next_connection_sequence": "0",
         "params": {
           "max_expected_time_per_block": "30000000000"
         }
+      },
+      "channel_genesis": {
+        "channels": [],
+        "acknowledgements": [],
+        "commitments": [],
+        "receipts": [],
+        "send_sequences": [],
+        "recv_sequences": [],
+        "ack_sequences": [],
+        "next_channel_sequence": "0"
       }
     },
     "interchainaccounts": {
       "controller_genesis_state": {
         "active_channels": [],
         "interchain_accounts": [],
+        "ports": [],
         "params": {
           "controller_enabled": true
-        },
-        "ports": []
+        }
       },
       "host_genesis_state": {
         "active_channels": [],
         "interchain_accounts": [],
+        "port": "icahost",
         "params": {
+          "host_enabled": true,
           "allow_messages": [
             "*"
-          ],
-          "host_enabled": true
-        },
-        "port": "icahost"
+          ]
+        }
       }
     },
     "mint": {
       "minter": {
-        "annual_provisions": "0.000000000000000000",
-        "inflation": "0.130000000000000000"
+        "inflation": "0.130000000000000000",
+        "annual_provisions": "0.000000000000000000"
       },
       "params": {
-        "blocks_per_year": "6311520",
-        "goal_bonded": "0.670000000000000000",
+        "mint_denom": "edst",
+        "inflation_rate_change": "0.100000000000000000",
         "inflation_max": "0.200000000000000000",
         "inflation_min": "0.070000000000000000",
-        "inflation_rate_change": "0.130000000000000000",
-        "mint_denom": "edst"
+        "goal_bonded": "0.670000000000000000",
+        "blocks_per_year": "6311520"
       }
     },
     "params": null,
     "runtime": null,
     "slashing": {
-      "missed_blocks": [],
       "params": {
-        "downtime_jail_duration": "600s",
-        "min_signed_per_window": "0.500000000000000000",
         "signed_blocks_window": "100",
+        "min_signed_per_window": "0.500000000000000000",
+        "downtime_jail_duration": "600s",
         "slash_fraction_double_sign": "0.050000000000000000",
         "slash_fraction_downtime": "0.010000000000000000"
       },
-      "signing_infos": []
+      "signing_infos": [],
+      "missed_blocks": []
     },
     "staking": {
-      "delegations": [],
-      "exported": false,
+      "params": {
+        "unbonding_time": "1814400s",
+        "max_validators": 100,
+        "max_entries": 7,
+        "historical_entries": 10000,
+        "bond_denom": "edst",
+        "min_commission_rate": "0.000000000000000000"
+      },
       "last_total_power": "0",
       "last_validator_powers": [],
-      "params": {
-        "bond_denom": "edst",
-        "historical_entries": 10000,
-        "max_entries": 7,
-        "max_validators": "47",
-        "min_commission_rate": "0.000000000000000000",
-        "unbonding_time": "1814400s"
-      },
-      "redelegations": [],
+      "validators": [],
+      "delegations": [],
       "unbonding_delegations": [],
-      "validators": []
+      "redelegations": [],
+      "exported": false
     },
     "tokenfactory": {
-      "denomList": [],
-      "params": {}
+      "params": {},
+      "denomList": []
     },
     "transfer": {
+      "port_id": "transfer",
       "denom_traces": [],
       "params": {
-        "receive_enabled": true,
-        "send_enabled": true
+        "send_enabled": true,
+        "receive_enabled": true
       },
-      "port_id": "transfer",
       "total_escrowed": []
     },
     "upgrade": {},

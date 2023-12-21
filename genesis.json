@@ -2,7 +2,7 @@
   "app_name": "dastchaind",
   "app_version": "",
   "genesis_time": "0001-01-01T00:00:00Z",
-  "chain_id": "dastchain-1",
+  "chain_id": "dast-1",
   "initial_height": 1,
   "app_hash": null,
   "app_state": {
@@ -40,7 +40,7 @@
     "consensus": null,
     "crisis": {
       "constant_fee": {
-        "denom": "stake",
+        "denom": "edst",
         "amount": "1000"
       }
     },
@@ -100,8 +100,8 @@
       "params": {
         "min_deposit": [
           {
-            "denom": "stake",
-            "amount": "10000000"
+            "denom": "edst",
+            "amount": "100"
           }
         ],
         "max_deposit_period": "172800s",
@@ -116,8 +116,8 @@
         "expedited_threshold": "0.667000000000000000",
         "expedited_min_deposit": [
           {
-            "denom": "stake",
-            "amount": "50000000"
+            "denom": "edst",
+            "amount": "500"
           }
         ],
         "burn_vote_quorum": false,
@@ -198,8 +198,8 @@
         "annual_provisions": "0.000000000000000000"
       },
       "params": {
-        "mint_denom": "stake",
-        "inflation_rate_change": "0.130000000000000000",
+        "mint_denom": "edst",
+        "inflation_rate_change": "0.100000000000000000",
         "inflation_max": "0.200000000000000000",
         "inflation_min": "0.070000000000000000",
         "goal_bonded": "0.670000000000000000",
@@ -225,7 +225,7 @@
         "max_validators": 100,
         "max_entries": 7,
         "historical_entries": 10000,
-        "bond_denom": "stake",
+        "bond_denom": "edst",
         "min_commission_rate": "0.000000000000000000"
       },
       "last_total_power": "0",
