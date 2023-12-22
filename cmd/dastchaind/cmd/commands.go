@@ -26,10 +26,12 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	authcmd "github.com/cosmos/cosmos-sdk/x/auth/client/cli"
+	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	"github.com/cosmos/cosmos-sdk/x/crisis"
 	"github.com/cosmos/cosmos-sdk/x/genutil"
 	genutilcli "github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
 	typesgen "github.com/cosmos/cosmos-sdk/x/genutil/types"
+
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
@@ -52,7 +54,7 @@ func initRootCmd(
 	)
 
 	server.AddCommands(rootCmd, app.DefaultNodeHome, newApp, appExport, addModuleInitFlags)
-
+	var defaultNodeHome string
 	// add keybase, auxiliary RPC, query, genesis, and tx child commands
 	rootCmd.AddCommand(
 		server.StatusCommand(),
@@ -62,6 +64,7 @@ func initRootCmd(
 		keys.Commands(),
 		ValidateGenesisCmd(basicManager),
 		AddGenesisAccountCmd(txConfig.SigningContext().AddressCodec()),
+		GenTxCmd(basicManager, txConfig, banktypes.GenesisBalancesIterator{}, defaultNodeHome, txConfig.SigningContext().ValidatorAddressCodec()),
 	)
 }
 
